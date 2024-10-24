@@ -18,7 +18,7 @@ schema = ["Principal", "Time", "Rates", "Description"]
 df = spark.createDataFrame(data, schema=schema)
 
 print("Original DataFrame:")
-df.show(truncate=False)
+df.display()
 
 # Use the transform function to calculate Simple Interest for one rate in the Rates array
 def ir(df):
