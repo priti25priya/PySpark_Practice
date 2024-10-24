@@ -21,18 +21,18 @@ df = spark.createDataFrame(data, schema=columns)
 
 # Show the original DataFrame
 print("Original DataFrame:")
-df.show(truncate=False)
+df.display()
 
 # Pivot on the first column: 'Metric'
 pivot_df = df.groupBy("Region", "Month").pivot("Metric").sum("Value")
 
 # Show the DataFrame after the first pivot
 print("DataFrame after first pivot (on 'Metric'):")
-pivot_df.show(truncate=False)
+pivot_df.display()
 
 # Pivot on the second column: 'Month'
 final_df = pivot_df.groupBy("Region").pivot("Month").sum("Sales", "Profit")
 
 # Show the final DataFrame after the second pivot
 print("DataFrame after second pivot (on 'Month'):")
-final_df.show(truncate=False)
+final_df.display()
